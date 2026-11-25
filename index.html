@@ -92,6 +92,15 @@ ol.steps,ul.ck{margin:0;padding-left:22px}ol.steps li,ul.ck li{margin:4px 0}
 .copy{margin-top:14px;height:44px;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:none;cursor:pointer}
 .pre{background:light-dark(#eef1f3,#191c1f);border-radius:10px;padding:12px 14px;margin-top:10px}
 .pre ol{margin:6px 0 0;padding-left:22px}
+.wa{margin-top:22px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#f7faf8}
+.wa h3{margin:0 0 4px}.wa label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600;margin-top:8px}
+.wa input,.wa textarea{font:inherit;font-size:16px;font-weight:400;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;min-height:44px}
+.wa-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.wa-b{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;align-items:center}
+.wa-go{display:inline-flex;align-items:center;height:44px;padding:0 16px;border-radius:8px;background:#1fa855;color:#fff;font-weight:600;text-decoration:none}
+.wa-go[aria-disabled=true]{background:#9fb8a8}
+.wa-msg{margin:8px 0 0;font-size:14px;color:var(--red);min-height:1em}
+@media(max-width:520px){.wa-g{grid-template-columns:minmax(0,1fr)}}
 footer{color:var(--mute);font-size:13px;padding:0 0 32px;white-space:pre-line}
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:18px;font-size:15px}
 .crumbs button{height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-weight:500}
@@ -148,7 +157,7 @@ ph:"Search code or word…",all:"All",none:"No codes match. Try only the number,
 err:"Error",sol:"Solution (checking point)",shown:"Related part",relS:"Related sensor",pos:"Install position",kind:"Type",range:"Normal output",
 s1:"Breakage symptom 1",s2:"Breakage symptom 2",rep:"Repair",ck:"General checks",copy:"Copy link to this code",copied:"Link copied",
 src:"Source: DHT 150S/150AS/160S/160AS Maintenance Manual, “Inspection and Diagnosis”, p.",src2:"Source: DHS 950L / DHS 1200L Maintenance Manual, “5. Error and restriction codes”, p.",sym:"Symptom",notes:"Warnings",lead2:"Type the code from the display (e.g. A.5, D.2) or a word like “winch”. Codes apply to both DHS 950L and DHS 1200L.",tr:"English translation from the Korean manual — to be checked.",
-pickS:"Choose a series",pickSl:"Select the equipment series, then the model, then the error code.",pickM:"Choose a model",pickMl:"Models without codes will be added when their manuals are uploaded.",series:"Series",nodata:"No codes yet",models:n=>n+(n===1?" model":" models")+" with codes",open:"Open codes",
+waT:"Send to service (WhatsApp)",waL:"Fill in both fields, then choose the service group in WhatsApp.",sn:"Serial number",pn:"Program no.",cm:"Comment (optional)",cmPh:"Where, what happened…",waB:"Send to WhatsApp",waCp:"Copy text",waNeed:"Enter the serial number and program no.",waCopied:"Text copied",mReq:"Service request",mModel:"Model",mErr:"Error",mSym:"Symptom",mSol:"Solution (manual)",mCm:"Comment",mLink:"Link",pickS:"Choose a series",pickSl:"Select the equipment series, then the model, then the error code.",pickM:"Choose a model",pickMl:"Models without codes will be added when their manuals are uploaded.",series:"Series",nodata:"No codes yet",models:n=>n+(n===1?" model":" models")+" with codes",open:"Open codes",
 foot:"Donghae Machinery & Aviation Co., Ltd.\nService reference.\nAlways follow the full maintenance manual and safety rules.",
 preT:"Pre-check procedure (do it daily)",
 pre:["Stabilize the outriggers at minimum extension.","Turn the boom right and place it in the rest position.","Set the boom up/down angle to 10°.","Press the “Pre-check” button.","Read the code on the display: an error shows a code with an alarm; no error shows “---” with no alarm."],
@@ -160,7 +169,7 @@ ph:"코드 또는 단어 검색…",all:"전체",none:"일치하는 코드가 �
 err:"에러",sol:"조치(점검 포인트)",shown:"관련 부위",relS:"관련 센서",pos:"설치 위치",kind:"종류",range:"정상 출력",
 s1:"고장 증상 1",s2:"고장 증상 2",rep:"정비",ck:"일반 점검 항목",copy:"이 코드 링크 복사",copied:"링크 복사됨",
 src:"출처: DHT 150S/150AS/160S/160AS 정비 매뉴얼 “점검 및 진단”, p.",src2:"출처: DHS 950L / DHS 1200L 정비 매뉴얼 “5. 에러 및 규제 코드”, p.",sym:"증상",notes:"경고",lead2:"디스플레이에 표시된 코드(예: A.5, D.2)나 “윈치” 같은 단어를 입력하세요. 코드는 DHS 950L과 DHS 1200L에 공통입니다.",tr:"",
-pickS:"시리즈 선택",pickSl:"장비 시리즈를 고른 다음 모델, 에러 코드 순서로 선택하세요.",pickM:"모델 선택",pickMl:"코드가 없는 모델은 매뉴얼이 업로드되면 추가됩니다.",series:"시리즈",nodata:"코드 준비 중",models:n=>"코드 있는 모델 "+n+"개",open:"코드 보기",
+waT:"서비스 요청 (WhatsApp)",waL:"두 칸을 모두 입력한 뒤 WhatsApp에서 서비스 그룹을 선택하세요.",sn:"장비 시리얼 번호",pn:"프로그램 번호",cm:"메모 (선택)",cmPh:"장소, 상황 등…",waB:"WhatsApp으로 보내기",waCp:"텍스트 복사",waNeed:"시리얼 번호와 프로그램 번호를 입력하세요.",waCopied:"복사됨",mReq:"서비스 요청",mModel:"모델",mErr:"에러",mSym:"증상",mSol:"조치 (매뉴얼)",mCm:"메모",mLink:"링크",pickS:"시리즈 선택",pickSl:"장비 시리즈를 고른 다음 모델, 에러 코드 순서로 선택하세요.",pickM:"모델 선택",pickMl:"코드가 없는 모델은 매뉴얼이 업로드되면 추가됩니다.",series:"시리즈",nodata:"코드 준비 중",models:n=>"코드 있는 모델 "+n+"개",open:"코드 보기",
 foot:"동해기계항공(주)\n서비스 참고 자료.\n반드시 정비 매뉴얼 전체와 안전 수칙을 따르십시오.",
 preT:"사전점검 절차 (매일 실시 권장)",
 pre:["아웃트리거를 최소 확장 상태로 설치합니다.","붐을 우측으로 선회하여 레스트 위치에 놓습니다.","붐 기복 각도를 10°로 맞춥니다.","“Pre-check” 버튼을 누릅니다.","디스플레이의 코드를 확인합니다: 이상 시 에러 코드 표시 및 경보음, 정상 시 “---” 표시, 경보음 없음."],
@@ -436,6 +445,28 @@ const sy=x=>L==="ko"?x.symKo:x.symEn;
 function lines(s,big){const a=s.split("\n");if(a.length===1)return big?`<p>${esc(s)}</p>`:`<p style="margin:0">${esc(s)}</p>`;
   return `<ul class="ck"${big?' style="font-size:17px;font-weight:500;margin-top:4px"':""}>${a.map(v=>`<li>${esc(v.replace(/^\d+\.\s*/,""))}</li>`).join("")}</ul>`}
 function notes(g){return `<ul class="ck">${g.notes[L].map(v=>`<li>${esc(v)}</li>`).join("")}</ul>`}
+let WA={sn:"",pn:""};
+try{WA=JSON.parse(localStorage.getItem("dh-wa"))||WA}catch(e){}
+function waText(x,sn,pn,cm){const g=G[x.g],strip=s=>s.replace(/\n/g,"; ");
+  const lines=[`🔧 Donghae — ${t("mReq")}`,`${t("mModel")}: ${ser} ${mod}`,`${t("sn")}: ${sn}`,`${t("pn")}: ${pn}`,
+   `${t("mErr")}: ${x.c} — ${x.en}`+(x.ko!==x.en?` / ${x.ko}`:"")];
+  if(sy(x))lines.push(`${t("mSym")}: ${strip(sy(x))}`);
+  if(sl(x))lines.push(`${t("mSol")}: ${strip(sl(x))}`);
+  if(cm)lines.push(`${t("mCm")}: ${cm}`);
+  lines.push(`${t("mLink")}: ${location.href.split("#")[0]}${hashFor(x.id)}`);
+  return lines.join("\n")}
+function waBind(x){const sn=$("#wa-sn"),pn=$("#wa-pn"),cm=$("#wa-cm"),go=$("#wa-go"),msg=$("#wa-msg");
+  sn.value=WA.sn||"";pn.value=WA.pn||"";
+  const upd=()=>{const ok=sn.value.trim()&&pn.value.trim();
+    go.setAttribute("aria-disabled",ok?"false":"true");
+    go.href=ok?"https://wa.me/?text="+encodeURIComponent(waText(x,sn.value.trim(),pn.value.trim(),cm.value.trim())):"#";
+    WA={sn:sn.value.trim(),pn:pn.value.trim()};try{localStorage.setItem("dh-wa",JSON.stringify(WA))}catch(e){}
+    if(ok)msg.textContent=""};
+  [sn,pn,cm].forEach(i=>i.addEventListener("input",upd));upd();
+  $("#wa").addEventListener("submit",e=>e.preventDefault());
+  go.addEventListener("click",e=>{if(go.getAttribute("aria-disabled")==="true"){e.preventDefault();msg.textContent=t("waNeed");(sn.value.trim()?pn:sn).focus()}});
+  $("#wa-cp").addEventListener("click",async()=>{if(!(sn.value.trim()&&pn.value.trim())){msg.textContent=t("waNeed");return}
+    try{await navigator.clipboard.writeText(waText(x,sn.value.trim(),pn.value.trim(),cm.value.trim()));msg.textContent=t("waCopied")}catch(e){msg.textContent=t("waNeed")}})}
 function renderDetail(){
   const x=C.find(y=>y.id===cur);
   if(!x){$("#detail").innerHTML=`<div class="card"><div class="hero"><div class="lcd"><div class="big">---</div><div class="where">${esc(t("ph"))}</div></div></div>
@@ -454,9 +485,21 @@ function renderDetail(){
    ${ck.length?`<h3>${esc(t("ck"))}</h3><ul class="ck">${ck.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>`:""}
    ${g.notes?`<h3>${esc(t("notes"))}</h3>${notes(g)}`:""}
    ${M==="dht"&&x.g==="E"?`<div class="pre"><b>${esc(t("preT"))}</b><ol>${t("pre").map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div>`:""}
+   <form class="wa" id="wa" novalidate>
+    <h3>${esc(t("waT"))}</h3>
+    <p class="note" style="border:0;padding:0;margin:0 0 10px">${esc(t("waL"))}</p>
+    <div class="wa-g">
+     <label>${esc(t("sn"))} *<input id="wa-sn" required autocomplete="off" inputmode="text"></label>
+     <label>${esc(t("pn"))} *<input id="wa-pn" required autocomplete="off"></label>
+    </div>
+    <label>${esc(t("cm"))}<textarea id="wa-cm" rows="2" placeholder="${esc(t("cmPh"))}"></textarea></label>
+    <div class="wa-b"><a id="wa-go" class="wa-go" href="#" target="_blank" rel="noopener" aria-disabled="true">${esc(t("waB"))}</a><button type="button" class="copy" id="wa-cp" style="margin:0">${esc(t("waCp"))}</button></div>
+    <p class="wa-msg" id="wa-msg" role="status"></p>
+   </form>
    <button class="copy" id="cp">${esc(t("copy"))}</button>
    <p class="note">${M==="dht"?esc(t("src"))+g.pg+(x.sn.length?", 128–131":", 128"):esc(t("src2"))+g.pg+(t("tr")?" · "+esc(t("tr")):"")}</p>
   </div></div>`;
+  waBind(x);
   $("#cp").onclick=async e=>{try{await navigator.clipboard.writeText(location.href.split("#")[0]+"#"+x.id);e.target.textContent=t("copied")}catch(err){e.target.textContent="#"+x.id}};
 }
 
