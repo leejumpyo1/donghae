@@ -138,7 +138,7 @@ const T={
 en:{brand:"Donghae Service",brandSub:"Error code guide",model:"Model",title:"Find an error code and how to fix it",
 lead:"Type the code from the display (e.g. P13, E08) or a word like “joystick”. Codes can be read on the bucket, main and post circuit boards; press “Error” on the lower controller to show them.",
 ph:"Search code or word…",all:"All",none:"No codes match. Try only the number, e.g. 13.",
-err:"Error",sol:"Solution (checking point)",shown:"Shown on",relS:"Related sensor",pos:"Install position",kind:"Type",range:"Normal output",
+err:"Error",sol:"Solution (checking point)",shown:"Related part",relS:"Related sensor",pos:"Install position",kind:"Type",range:"Normal output",
 s1:"Breakage symptom 1",s2:"Breakage symptom 2",rep:"Repair",ck:"General checks",copy:"Copy link to this code",copied:"Link copied",
 src:"Source: DHT 150S/150AS/160S/160AS Maintenance Manual, “Inspection and Diagnosis”, p.",src2:"Source: DHS 950L / DHS 1200L Maintenance Manual, “5. Error and restriction codes”, p.",sym:"Symptom",notes:"Warnings",lead2:"Type the code from the display (e.g. A.5, D.2) or a word like “winch”. Codes apply to both DHS 950L and DHS 1200L.",tr:"English translation from the Korean manual — to be checked.",
 pickS:"Choose a series",pickSl:"Select the equipment series, then the model, then the error code.",pickM:"Choose a model",pickMl:"Models without codes will be added when their manuals are uploaded.",series:"Series",nodata:"No codes yet",models:n=>n+(n===1?" model":" models")+" with codes",open:"Open codes",
@@ -150,7 +150,7 @@ spare:"Spare — not used",kr:""},
 ko:{brand:"동해 서비스",brandSub:"에러 코드 안내",model:"모델",title:"에러 코드와 조치 방법 찾기",
 lead:"디스플레이에 표시된 코드(예: P13, E08)나 “조이스틱” 같은 단어를 입력하세요. 코드는 버킷·메인·포스트 회로기판에서 확인할 수 있으며, 하부 컨트롤러의 “Error” 버튼을 누르면 표시됩니다.",
 ph:"코드 또는 단어 검색…",all:"전체",none:"일치하는 코드가 없습니다. 숫자만 입력해 보세요(예: 13).",
-err:"에러",sol:"조치(점검 포인트)",shown:"표시 위치",relS:"관련 센서",pos:"설치 위치",kind:"종류",range:"정상 출력",
+err:"에러",sol:"조치(점검 포인트)",shown:"관련 부위",relS:"관련 센서",pos:"설치 위치",kind:"종류",range:"정상 출력",
 s1:"고장 증상 1",s2:"고장 증상 2",rep:"정비",ck:"일반 점검 항목",copy:"이 코드 링크 복사",copied:"링크 복사됨",
 src:"출처: DHT 150S/150AS/160S/160AS 정비 매뉴얼 “점검 및 진단”, p.",src2:"출처: DHS 950L / DHS 1200L 정비 매뉴얼 “5. 에러 및 규제 코드”, p.",sym:"증상",notes:"경고",lead2:"디스플레이에 표시된 코드(예: A.5, D.2)나 “윈치” 같은 단어를 입력하세요. 코드는 DHS 950L과 DHS 1200L에 공통입니다.",tr:"",
 pickS:"시리즈 선택",pickSl:"장비 시리즈를 고른 다음 모델, 에러 코드 순서로 선택하세요.",pickM:"모델 선택",pickMl:"코드가 없는 모델은 매뉴얼이 업로드되면 추가됩니다.",series:"시리즈",nodata:"코드 준비 중",models:n=>"코드 있는 모델 "+n+"개",open:"코드 보기",
@@ -161,11 +161,11 @@ preN:"절차대로 점검하지 않으면 에러나 경보가 잘못 발생할 �
 spare:"예비 — 미사용"}
 };
 const G1={
-P:{en:"Platform — bucket controller",ko:"플랫폼 — 버킷 컨트롤러",pg:125},
-C:{en:"Column — post controller",ko:"컬럼 — 포스트 컨트롤러",pg:125},
-F:{en:"Frame — main controller",ko:"프레임 — 메인 컨트롤러",pg:126},
-L:{en:"Lower — lower controller",ko:"하부 — 로어 컨트롤러",pg:126},
-E:{en:"Pre-check codes (lower display)",ko:"사전점검 코드 (하부 디스플레이)",pg:127}};
+P:{en:"Platform (bucket)",ko:"플랫폼 (버킷)",pg:125},
+C:{en:"Column (post)",ko:"컬럼 (포스트)",pg:125},
+F:{en:"Frame (chassis)",ko:"프레임 (차체)",pg:126},
+L:{en:"Lower part",ko:"하부",pg:126},
+E:{en:"Pre-check",ko:"사전점검",pg:127}};
 const PW=["Power voltage","전원 전압","Inspect power","전원 점검","wire"];
 const SY=["Synchro error","동기 오류","Inspect telecommunication wire","통신선 점검","wire"];
 const CPU=["Inside telecommunication error","내부 통신 오류","Inspect CPU condition","CPU 상태 점검","board"];
