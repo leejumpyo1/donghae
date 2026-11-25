@@ -1,6 +1,6 @@
 // Offline cache for the Donghae error code guide.
 // Bump VERSION on every deploy so phones pick up the new page.
-const VERSION = "dh-codes-v7";
+const VERSION = "dh-codes-v8";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", e => {
