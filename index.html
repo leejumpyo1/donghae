@@ -12,11 +12,11 @@
    PICTURE: a large code readout beside a side-view of the truck that lights up the controller that raised it.
    COLOUR and TYPE: steel panel, black ink, white, alarm red; Inter Tight + Inter / Noto Sans KR.
    LAYOUT: search and filters on top, code list left, diagnosis panel right; stacked on phones. */
-:root{color-scheme:light dark;
+:root{color-scheme:light;
 --bg:light-dark(#d5dbe0,#16191c);--panel:light-dark(#fff,#1f2327);--ink:light-dark(#0c0d0e,#eef1f3);
 --mute:light-dark(#4d565e,#a3adb5);--line:light-dark(#bcc4ca,#343a40);--red:#e8251a;--redsoft:light-dark(#fde4e2,#3a1a18);
 --lcd:#101315;--lcdtxt:#ff4a3d;--steel:light-dark(#aeb7be,#3a4148)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+:root[data-theme]{color-scheme:light}
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,"Noto Sans KR",system-ui,sans-serif;overflow-x:clip}
 :lang(ko) body,html[lang=ko] body{font-family:"Noto Sans KR",Inter,system-ui,sans-serif;word-break:keep-all}
@@ -24,7 +24,7 @@ h1,h2,h3{font-family:"Inter Tight","Noto Sans KR",sans-serif;margin:0;line-heigh
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--red);outline-offset:2px}
 .wrap{max-width:1240px;margin:0 auto;padding:0 max(4vw,16px)}
-header{background:var(--ink);color:var(--bg)}
+header{background:#0c0d0e;color:#fff}
 header .wrap{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;padding-block:14px}
 .brand{display:flex;gap:14px;align-items:center}.logo{display:block;height:44px;width:auto}.brand .sep{width:1px;height:32px;background:#ffffff40}
 @media(max-width:600px){.logo{height:34px}.brand .sep,.brand>div{display:none}}
