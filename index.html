@@ -448,8 +448,9 @@ function notes(g){return `<ul class="ck">${g.notes[L].map(v=>`<li>${esc(v)}</li>
 let WA={sn:"",pn:""};
 try{WA=JSON.parse(localStorage.getItem("dh-wa"))||WA}catch(e){}
 function waText(x,sn,pn,cm){
-  return ["SERVICE REQUEST","",`Model: ${ser} ${mod}`,`Serial number: ${sn}`,`Program no.: ${pn}`,"",
-   `Error: ${x.c}`,x.en+(x.ko!==x.en?` / ${x.ko}`:""),"",`Comment: ${cm}`.trimEnd()].join("\n")}
+  const nm=[x.en];if(x.ko!==x.en)nm.push(x.ko);
+  return ["SERVICE REQUEST","",`MODEL: ${ser} ${mod}`,`S/N: ${sn}`,`P/N: ${pn}`,"",
+   `ERROR CODE: ${x.c}`,...nm,"",`COMMENT: ${cm}`.trimEnd()].join("\n")}
 function waBind(x){const sn=$("#wa-sn"),pn=$("#wa-pn"),cm=$("#wa-cm"),go=$("#wa-go"),msg=$("#wa-msg");
   sn.value=WA.sn||"";pn.value=WA.pn||"";
   const upd=()=>{const ok=sn.value.trim()&&pn.value.trim();
