@@ -445,6 +445,7 @@ const sy=x=>L==="ko"?x.symKo:x.symEn;
 function lines(s,big){const a=s.split("\n");if(a.length===1)return big?`<p>${esc(s)}</p>`:`<p style="margin:0">${esc(s)}</p>`;
   return `<ul class="ck"${big?' style="font-size:17px;font-weight:500;margin-top:4px"':""}>${a.map(v=>`<li>${esc(v.replace(/^\d+\.\s*/,""))}</li>`).join("")}</ul>`}
 function notes(g){return `<ul class="ck">${g.notes[L].map(v=>`<li>${esc(v)}</li>`).join("")}</ul>`}
+const WA_ON=false; // WhatsApp service request — hidden for now
 let WA={sn:"",pn:""};
 try{WA=JSON.parse(localStorage.getItem("dh-wa"))||WA}catch(e){}
 function waText(x,sn,pn,cm){
@@ -481,7 +482,7 @@ function renderDetail(){
    ${ck.length?`<h3>${esc(t("ck"))}</h3><ul class="ck">${ck.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>`:""}
    ${g.notes?`<h3>${esc(t("notes"))}</h3>${notes(g)}`:""}
    ${M==="dht"&&x.g==="E"?`<div class="pre"><b>${esc(t("preT"))}</b><ol>${t("pre").map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div>`:""}
-   <form class="wa" id="wa" novalidate>
+   ${WA_ON?`<form class="wa" id="wa" novalidate>
     <h3>${esc(t("waT"))}</h3>
     <p class="note" style="border:0;padding:0;margin:0 0 10px">${esc(t("waL"))}</p>
     <div class="wa-g">
@@ -491,11 +492,11 @@ function renderDetail(){
     <label>${esc(t("cm"))}<textarea id="wa-cm" rows="2" placeholder="${esc(t("cmPh"))}"></textarea></label>
     <div class="wa-b"><a id="wa-go" class="wa-go" href="#" target="_blank" rel="noopener" aria-disabled="true">${esc(t("waB"))}</a><button type="button" class="copy" id="wa-cp" style="margin:0">${esc(t("waCp"))}</button></div>
     <p class="wa-msg" id="wa-msg" role="status"></p>
-   </form>
+   </form>`:""}
    <button class="copy" id="cp">${esc(t("copy"))}</button>
    <p class="note">${M==="dht"?esc(t("src"))+g.pg+(x.sn.length?", 128–131":", 128"):esc(t("src2"))+g.pg+(t("tr")?" · "+esc(t("tr")):"")}</p>
   </div></div>`;
-  waBind(x);
+  if(WA_ON)waBind(x);
   $("#cp").onclick=async e=>{try{await navigator.clipboard.writeText(location.href.split("#")[0]+"#"+x.id);e.target.textContent=t("copied")}catch(err){e.target.textContent="#"+x.id}};
 }
 
