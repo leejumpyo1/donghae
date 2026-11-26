@@ -136,6 +136,10 @@ ol.steps,ul.ck{margin:0;padding-left:22px}ol.steps li,ul.ck li{margin:4px 0}
 .ct tbody th{color:var(--mute);font-weight:500;min-width:120px}
 @media(max-width:860px){.sp-grid{grid-template-columns:minmax(0,1fr)}.sp-figs{position:static}}
 @media(max-width:600px){.st tr{display:grid}.st th{width:auto;border-bottom:0;padding-bottom:0;background:none;font-size:13px}.st td{padding-top:2px}.tile b{font-size:20px}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+header .topnav{display:flex;justify-content:flex-start;gap:4px;padding-block:0}
+.topnav button{height:46px;padding:0 16px;border:0;background:none;color:#ffffffb3;font-weight:600;font-size:16px;cursor:pointer;border-bottom:3px solid transparent}
+.topnav button[aria-pressed=true]{color:#fff;border-bottom-color:var(--red)}
+.topnav button:hover{color:#fff}
 footer{color:var(--mute);font-size:13px;padding:0 0 32px;white-space:pre-line}
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:18px;font-size:15px}
 .crumbs button{height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-weight:500}
@@ -161,7 +165,9 @@ footer{color:var(--mute);font-size:13px;padding:0 0 32px;white-space:pre-line}
   <div class="tools">
     <div class="lang" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="ko">한국어</button></div>
   </div>
-</div></header>
+</div>
+<nav class="wrap topnav" id="topnav" aria-label="Sections"><button data-sec="specs" data-i="navP"></button><button data-sec="codes" data-i="navC"></button></nav>
+</header>
 
 <nav class="wrap crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
 <nav class="wrap mtabs" id="mtabs" hidden></nav>
@@ -194,7 +200,7 @@ ph:"Search code or word…",all:"All",none:"No codes match. Try only the number,
 err:"Error",sol:"Solution (checking point)",shown:"Related part",relS:"Related sensor",pos:"Install position",kind:"Type",range:"Normal output",
 s1:"Breakage symptom 1",s2:"Breakage symptom 2",rep:"Repair",ck:"General checks",copy:"Copy link to this code",copied:"Link copied",
 src:"Source: DHT 150S/150AS/160S/160AS Maintenance Manual, “Inspection and Diagnosis”, p.",src2:"Source: DHS 950L / DHS 1200L Maintenance Manual, “5. Error and restriction codes”, p.",sym:"Symptom",notes:"Warnings",lead2:"Type the code from the display (e.g. A.5, D.2) or a word like “winch”. Codes apply to both DHS 950L and DHS 1200L.",tr:"English translation from the Korean manual — to be checked.",
-waT:"Send to service (WhatsApp)",waL:"Fill in both fields, then choose the service group in WhatsApp.",sn:"Serial number",snPh:"e.g. DH260521-8",pn:"Program no.",cm:"Comment (optional)",cmPh:"Where, what happened…",waB:"Send to WhatsApp",waCp:"Copy text",waNeed:"Enter the serial number and program no.",waCopied:"Text copied",mReq:"Service request",mModel:"Model",mErr:"Error",mSym:"Symptom",mSol:"Solution (manual)",mCm:"Comment",mLink:"Link",pickS:"Choose a series",pickSl:"Select the equipment series, then the model.",pickM:"Choose a model",pickMl:"Grey models have no data yet.",series:"Series",nodata:"No data yet",models:n=>n+(n===1?" model":" models"),open:"Open codes",tSpecs:"Specifications",tCodes:"Error codes",noCodes:"No error codes for this model yet.",cpSpec:"Copy specifications",cpDone:"Copied",cmpT:"Compare models",cmpL:"Pick up to 3 models to compare with this one.",cmpClear:"Clear",wr:"Working range diagram",od:"Overall dimensions",full:"Open full size",srcS:"Source: ",valNote:"Values as written in the manufacturer's specification.",note950:"The general information page of the same document states 7 m.",note120:"The overall dimension drawing in this document is labelled DHT 110, so it is not shown.",noWR:"No working range diagram in the document.",keyF:"Key figures",
+waT:"Send to service (WhatsApp)",waL:"Fill in both fields, then choose the service group in WhatsApp.",sn:"Serial number",snPh:"e.g. DH260521-8",pn:"Program no.",cm:"Comment (optional)",cmPh:"Where, what happened…",waB:"Send to WhatsApp",waCp:"Copy text",waNeed:"Enter the serial number and program no.",waCopied:"Text copied",mReq:"Service request",mModel:"Model",mErr:"Error",mSym:"Symptom",mSol:"Solution (manual)",mCm:"Comment",mLink:"Link",pickS:"Choose a series",pickSl:"Select the equipment series, then the model.",pickM:"Choose a model",pickMl:"Grey models have no data yet.",series:"Series",nodata:"No data yet",models:n=>n+(n===1?" model":" models"),open:"Open codes",navP:"Products",navC:"Error codes",pickSlP:"Select the series, then the model, to see its specifications.",tSpecs:"Specifications",tCodes:"Error codes",noCodes:"No error codes for this model yet.",cpSpec:"Copy specifications",cpDone:"Copied",cmpT:"Compare models",cmpL:"Pick up to 3 models to compare with this one.",cmpClear:"Clear",wr:"Working range diagram",od:"Overall dimensions",full:"Open full size",srcS:"Source: ",valNote:"Values as written in the manufacturer's specification.",note950:"The general information page of the same document states 7 m.",note120:"The overall dimension drawing in this document is labelled DHT 110, so it is not shown.",noWR:"No working range diagram in the document.",keyF:"Key figures",
 foot:"Donghae Machinery & Aviation Co., Ltd.\nService reference.\nAlways follow the full maintenance manual and safety rules.",
 preT:"Pre-check procedure (do it daily)",
 pre:["Stabilize the outriggers at minimum extension.","Turn the boom right and place it in the rest position.","Set the boom up/down angle to 10°.","Press the “Pre-check” button.","Read the code on the display: an error shows a code with an alarm; no error shows “---” with no alarm."],
@@ -206,7 +212,7 @@ ph:"코드 또는 단어 검색…",all:"전체",none:"일치하는 코드가 �
 err:"에러",sol:"조치(점검 포인트)",shown:"관련 부위",relS:"관련 센서",pos:"설치 위치",kind:"종류",range:"정상 출력",
 s1:"고장 증상 1",s2:"고장 증상 2",rep:"정비",ck:"일반 점검 항목",copy:"이 코드 링크 복사",copied:"링크 복사됨",
 src:"출처: DHT 150S/150AS/160S/160AS 정비 매뉴얼 “점검 및 진단”, p.",src2:"출처: DHS 950L / DHS 1200L 정비 매뉴얼 “5. 에러 및 규제 코드”, p.",sym:"증상",notes:"경고",lead2:"디스플레이에 표시된 코드(예: A.5, D.2)나 “윈치” 같은 단어를 입력하세요. 코드는 DHS 950L과 DHS 1200L에 공통입니다.",tr:"",
-waT:"서비스 요청 (WhatsApp)",waL:"두 칸을 모두 입력한 뒤 WhatsApp에서 서비스 그룹을 선택하세요.",sn:"장비 시리얼 번호",snPh:"예: DH260521-8",pn:"프로그램 번호",cm:"메모 (선택)",cmPh:"장소, 상황 등…",waB:"WhatsApp으로 보내기",waCp:"텍스트 복사",waNeed:"시리얼 번호와 프로그램 번호를 입력하세요.",waCopied:"복사됨",mReq:"서비스 요청",mModel:"모델",mErr:"에러",mSym:"증상",mSol:"조치 (매뉴얼)",mCm:"메모",mLink:"링크",pickS:"시리즈 선택",pickSl:"장비 시리즈를 고른 다음 모델을 선택하세요.",pickM:"모델 선택",pickMl:"회색 모델은 아직 자료가 없습니다.",series:"시리즈",nodata:"자료 준비 중",models:n=>"모델 "+n+"개",open:"코드 보기",tSpecs:"제원",tCodes:"에러 코드",noCodes:"이 모델의 에러 코드는 아직 없습니다.",cpSpec:"제원 복사",cpDone:"복사됨",cmpT:"모델 비교",cmpL:"이 모델과 비교할 모델을 최대 3개까지 고르세요.",cmpClear:"초기화",wr:"작업 범위도",od:"외형 치수도",full:"크게 보기",srcS:"출처: ",valNote:"값은 제조사 사양서(영문) 표기 그대로입니다.",note950:"같은 문서의 일반 정보 페이지에는 7 m로 표기되어 있습니다.",note120:"이 문서의 외형 치수도는 DHT 110으로 표기되어 있어 표시하지 않습니다.",noWR:"문서에 작업 범위도가 없습니다.",keyF:"주요 제원",
+waT:"서비스 요청 (WhatsApp)",waL:"두 칸을 모두 입력한 뒤 WhatsApp에서 서비스 그룹을 선택하세요.",sn:"장비 시리얼 번호",snPh:"예: DH260521-8",pn:"프로그램 번호",cm:"메모 (선택)",cmPh:"장소, 상황 등…",waB:"WhatsApp으로 보내기",waCp:"텍스트 복사",waNeed:"시리얼 번호와 프로그램 번호를 입력하세요.",waCopied:"복사됨",mReq:"서비스 요청",mModel:"모델",mErr:"에러",mSym:"증상",mSol:"조치 (매뉴얼)",mCm:"메모",mLink:"링크",pickS:"시리즈 선택",pickSl:"장비 시리즈를 고른 다음 모델을 선택하세요.",pickM:"모델 선택",pickMl:"회색 모델은 아직 자료가 없습니다.",series:"시리즈",nodata:"자료 준비 중",models:n=>"모델 "+n+"개",open:"코드 보기",navP:"제품",navC:"에러 코드",pickSlP:"시리즈와 모델을 선택하면 제원을 볼 수 있습니다.",tSpecs:"제원",tCodes:"에러 코드",noCodes:"이 모델의 에러 코드는 아직 없습니다.",cpSpec:"제원 복사",cpDone:"복사됨",cmpT:"모델 비교",cmpL:"이 모델과 비교할 모델을 최대 3개까지 고르세요.",cmpClear:"초기화",wr:"작업 범위도",od:"외형 치수도",full:"크게 보기",srcS:"출처: ",valNote:"값은 제조사 사양서(영문) 표기 그대로입니다.",note950:"같은 문서의 일반 정보 페이지에는 7 m로 표기되어 있습니다.",note120:"이 문서의 외형 치수도는 DHT 110으로 표기되어 있어 표시하지 않습니다.",noWR:"문서에 작업 범위도가 없습니다.",keyF:"주요 제원",
 foot:"동해기계항공(주)\n서비스 참고 자료.\n반드시 정비 매뉴얼 전체와 안전 수칙을 따르십시오.",
 preT:"사전점검 절차 (매일 실시 권장)",
 pre:["아웃트리거를 최소 확장 상태로 설치합니다.","붐을 우측으로 선회하여 레스트 위치에 놓습니다.","붐 기복 각도를 10°로 맞춥니다.","“Pre-check” 버튼을 누릅니다.","디스플레이의 코드를 확인합니다: 이상 시 에러 코드 표시 및 경보음, 정상 시 “---” 표시, 경보음 없음."],
@@ -471,9 +477,9 @@ const PH={DHAS:"data:image/webp;base64,UklGRhaoAABXRUJQVlA4WAoAAAAQAAAAQwIAzwIAQ
 const SERIES=[{k:"DHAS",m:[["120AP",null]]},{k:"DHS",m:[["950L","dhs"],["1200L","dhs"]]},
 {k:"DHT",m:[["120",null],["150L",null],["150S","dht"],["150AS","dht"],["160S","dht"],["160AS","dht"],["170S",null],["170AS",null],["180S",null],["190AS",null]]},
 {k:"DHTA",m:[["1800S",null]]}];
-let ser=null,mod=null,view="codes",cmp=[];
+let ser=null,mod=null,view="specs",cmp=[];
 const hasSpec=(s,m)=>!!SPEC[s+" "+m];
-const modOk=(s,m)=>!!(m[1]||hasSpec(s,m[0]));
+const modOk=(s,m)=>view==="specs"?hasSpec(s,m[0]):!!m[1];
 let L="en",grp="all",cur=null,M="dht",C=C1,G=G1;
 try{L=localStorage.getItem("dh-lang")||(navigator.language||"").startsWith("ko")&&"ko"||"en"}catch(e){}
 const $=s=>document.querySelector(s),t=k=>T[L][k];
@@ -621,16 +627,16 @@ function renderDetail(){
   $("#cp").onclick=async e=>{try{await navigator.clipboard.writeText(location.href.split("#")[0]+"#"+x.id);e.target.textContent=t("copied")}catch(err){e.target.textContent="#"+x.id}};
 }
 
-function hashFor(id){return "#"+[ser,mod,id||(mod?view:"")].filter(Boolean).join("-").toLowerCase()}
-function setHash(){const hh=ser?hashFor(cur):"";if(location.hash!==hh)history.replaceState(null,"",hh||location.pathname+location.search)}
+function hashFor(id){return "#"+[ser,mod,id||view].filter(Boolean).join("-").toLowerCase()}
+function setHash(){const hh=hashFor(cur);if(location.hash!==hh)history.replaceState(null,"",hh||location.pathname+location.search)}
 function renderCrumbs(){
   if(!ser){$("#crumbs").innerHTML="";return}
   $("#crumbs").innerHTML=`<button data-go="home">← ${esc(t("series"))}</button><span>›</span><b>${esc(ser)}</b>${mod?`<span>›</span><button data-go="ser">${esc(t("pickM"))}</button><span>›</span><b>${esc(ser+" "+mod)}</b>`:""}`}
 function renderPick(){
-  if(!ser){$("#pick").innerHTML=`<h1>${esc(t("pickS"))}</h1><p>${esc(t("pickSl"))}</p><div class="cards">${SERIES.map(s=>{const n=s.m.filter(m=>modOk(s.k,m)).length;
+  if(!ser){$("#pick").innerHTML=`<h1>${esc(t("pickS"))}</h1><p>${esc(t(view==="specs"?"pickSlP":"pickSl"))}</p><div class="cards">${SERIES.map(s=>{const n=s.m.filter(m=>modOk(s.k,m)).length;
     return `<button class="cardb" data-s="${s.k}"><div class="mini">${PH[s.k]?`<img src="${PH[s.k]}" alt="${s.k}">`:""}</div><span class="nm">${s.k}</span><span class="sub ${n?"ok":""}">${esc(n?t("models")(n):t("nodata"))}</span></button>`}).join("")}</div>`;return}
   const s=SERIES.find(v=>v.k===ser);
-  $("#pick").innerHTML=`<h1>${esc(t("pickM"))} · ${esc(ser)}</h1><p>${esc(t("pickMl"))}</p>${s.m.length?`<div class="cards m">${s.m.map(m=>{const ok=modOk(ser,m),sp=hasSpec(ser,m[0]);return `<button class="cardb" data-m="${m[0]}" ${ok?"":"disabled"}><span class="nm">${esc(ser+" "+m[0])}</span>${ok?`<span class="tags">${sp?`<span>${esc(t("tSpecs"))}</span>`:""}${m[1]?`<span>${esc(t("tCodes"))}</span>`:""}</span>`:`<span class="sub">${esc(t("nodata"))}</span>`}</button>`}).join("")}</div>`:`<p class="empty" style="padding:0">${esc(t("nodata"))}</p>`}`}
+  $("#pick").innerHTML=`<h1>${esc(t("pickM"))} · ${esc(ser)}</h1><p>${esc(t("pickMl"))}</p>${s.m.length?`<div class="cards m">${s.m.map(m=>{const ok=modOk(ser,m),sp=hasSpec(ser,m[0]);return `<button class="cardb" data-m="${m[0]}" ${ok?"":"disabled"}><span class="nm">${esc(ser+" "+m[0])}</span>${ok?`<span class="sub ok">${esc((view==="specs"?t("tSpecs"):t("tCodes"))+" →")}</span>`:`<span class="sub">${esc(t("nodata"))}</span>`}</button>`}).join("")}</div>`:`<p class="empty" style="padding:0">${esc(t("nodata"))}</p>`}`}
 function renderMtabs(){const m=SERIES.find(v=>v.k===ser).m.find(v=>v[0]===mod);
   const b=(k,lbl,dis)=>`<button data-v="${k}" aria-pressed="${view===k}" ${dis?"disabled":""}>${esc(lbl)}</button>`;
   $("#mtabs").innerHTML=b("specs",t("tSpecs"),!hasSpec(ser,mod))+b("codes",t("tCodes"),!m[1])}
@@ -666,10 +672,10 @@ function render(){document.documentElement.lang=L;
   $("#q").placeholder=t("ph");
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===L));
   renderCrumbs();
-  const showM=!!(ser&&mod);$("#pick").hidden=showM;$("#mtabs").hidden=!showM;
+  const showM=!!(ser&&mod);$("#pick").hidden=showM;$("#mtabs").hidden=true;
+  document.querySelectorAll("#topnav button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.sec===view));
   $("#codes").hidden=!(showM&&view==="codes");$("#specs").hidden=!(showM&&view==="specs");
   if(!showM){renderPick();return}
-  renderMtabs();
   if(view==="specs"){renderSpecs();return}
   $(".top h1").textContent=ser+" "+mod;
   renderTabs();renderList();renderDetail()}
@@ -684,7 +690,10 @@ $("#q").addEventListener("input",()=>{renderTabs();const rows=renderList();
   const ex=C.find(x=>x.id===q);if(ex&&(grp==="all"||ex.g===grp))openCode(ex.id,false)});
 $("#pick").addEventListener("click",e=>{const b=e.target.closest("button");if(!b||b.disabled)return;
   if(b.dataset.s){ser=b.dataset.s;mod=null}
-  if(b.dataset.m){mod=b.dataset.m;const d=SERIES.find(v=>v.k===ser).m.find(m=>m[0]===mod)[1];if(d)setModel(d);view=d?"codes":"specs";cmp=[];cur=null;$("#q").value=""}
+  if(b.dataset.m){mod=b.dataset.m;const d=SERIES.find(v=>v.k===ser).m.find(m=>m[0]===mod)[1];if(d)setModel(d);cmp=[];cur=null;$("#q").value=""}
+  setHash();render();scrollTo({top:0})});
+$("#topnav").addEventListener("click",e=>{const b=e.target.closest("button");if(!b||b.dataset.sec===view)return;view=b.dataset.sec;cur=null;
+  if(ser&&mod){const m=SERIES.find(v=>v.k===ser).m.find(v=>v[0]===mod);if(!modOk(ser,m))mod=null}
   setHash();render();scrollTo({top:0})});
 $("#mtabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b||b.disabled)return;view=b.dataset.v;cur=null;setHash();render()});
 $("#crumbs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
@@ -695,9 +704,13 @@ $("#list").addEventListener("click",e=>{const b=e.target.closest(".row");if(b)op
 document.querySelector(".lang").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;L=b.dataset.l;try{localStorage.setItem("dh-lang",L)}catch(err){}render()});
 function fromHash(){const p=location.hash.slice(1).toUpperCase().split("-").filter(Boolean);
   ser=null;mod=null;cur=null;if(!p.length)return;
+  const V=x=>x==="SPECS"?"specs":x==="CODES"?"codes":null;
+  if(V(p[0])){view=V(p[0]);return}
+  if(p[1]&&V(p[1])){const s0=SERIES.find(v=>v.k===p[0]);if(s0){ser=s0.k;view=V(p[1]);return}}
   const s=SERIES.find(v=>v.k===p[0]);
-  if(s){ser=s.k;const m=p[1]&&s.m.find(v=>v[0]===p[1]&&modOk(s.k,v));if(m){mod=m[0];if(m[1])setModel(m[1]);
-    view=p[2]==="SPECS"||!m[1]?"specs":"codes";if(m[1]&&p[2]&&C.some(x=>x.id===p[2]))cur=p[2]}return}
+  if(s){ser=s.k;const m=p[1]&&s.m.find(v=>v[0]===p[1]);
+    if(m){view=p[2]==="SPECS"?"specs":p[2]?"codes":view;if(!modOk(s.k,m))view=view==="specs"?"codes":"specs";
+      if(modOk(s.k,m)){mod=m[0];if(m[1])setModel(m[1]);if(view==="codes"&&p[2]&&C.some(x=>x.id===p[2]))cur=p[2]}}return}
   for(const s2 of SERIES)for(const m of s2.m){if(m[1]&&MODELS[m[1]].C.some(x=>x.id===p[0])){ser=s2.k;mod=m[0];setModel(m[1]);view="codes";cur=p[0];return}}}
 addEventListener("hashchange",()=>{fromHash();render()});
 fromHash();render();
