@@ -1,0 +1,9 @@
+{
+  // Cloudflare Worker serving the static guide (index.html, img/, sw.js, manifest)
+  "name": "donghae",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "single-page-application"
+  }
+}
