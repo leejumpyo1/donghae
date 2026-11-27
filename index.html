@@ -688,7 +688,7 @@ function rowDef(k){for(const sec of ROWS)for(const r of sec[2])if(r[0]===k)retur
 function renderSpecs(){const name=ser+" "+mod,s=SPEC[name];if(!s){$("#specs").innerHTML="";return}
   const tiles=TILES.filter(x=>s.v[x[0]]).map(x=>`<div class="tile"><b>${esc(s.v[x[0]])}</b><span>${esc(LBL(x))}</span></div>`).join("");
   const sec=specRows(s).map(([sc,rows])=>`<h3>${esc(L==="ko"?sc[1]:sc[0])}</h3><table class="st"><tbody>${rows.map(r=>`<tr><th>${esc(LBL(r))}</th><td>${esc(s.v[r[0]])}${r[0]==="reach"&&s.note==="reach"?`<small class="fn">${esc(t("note950"))}</small>`:""}</td></tr>`).join("")}</tbody></table>`).join("");
-  const fig=(k,lbl)=>`<figure><a href="img/${s.img}_${k}.webp" target="_blank" rel="noopener"><img src="img/${s.img}_${k}.webp" alt="${esc(name+" — "+lbl)}" loading="lazy"></a><figcaption>${esc(lbl)} · <a href="img/${s.img}_${k}.webp" target="_blank" rel="noopener">${esc(t("full"))}</a></figcaption></figure>`;
+  const fig=(k,lbl)=>`<figure><a href="img/${s.img}_${k}.webp" target="_blank" rel="noopener"><img src="img/${s.img}_${k}.webp" alt="${esc(name+" — "+lbl)}"></a><figcaption>${esc(lbl)} · <a href="img/${s.img}_${k}.webp" target="_blank" rel="noopener">${esc(t("full"))}</a></figcaption></figure>`;
   const figs=(s.img==="DHT120"?`<p class="fn">${esc(t("noWR"))}</p>`:fig("wr",t("wr")))+(s.noOD?`<p class="fn">${esc(t("note120"))}</p>`:fig("od",t("od")));
   const others=SERIES.flatMap(sr=>sr.m.map(m=>sr.k+" "+m[0])).filter(k=>SPEC[k]&&k!==name);
   const cols=[name,...cmp.filter(k=>SPEC[k])];
@@ -696,11 +696,12 @@ function renderSpecs(){const name=ser+" "+mod,s=SPEC[name];if(!s){$("#specs").in
      return `<tr><th>${esc(LBL(r))}</th>${cols.map(c=>`<td>${esc(SPEC[c].v[k]||"—")}</td>`).join("")}</tr>`}).join("")}</tbody></table></div>`:"";
   $("#specs").innerHTML=`<h1>${esc(name)}</h1>
    <div class="tiles" aria-label="${esc(t("keyF"))}">${tiles}</div>
-   <div class="sp-actions"><button class="copy" id="sp-cp">${esc(t("cpSpec"))}</button><a class="copy lnk" href="#cmp">${esc(t("cmpT"))} ↓</a></div>
+   <div class="sp-actions"><button class="copy" id="sp-cp">${esc(t("cpSpec"))}</button><button class="copy" id="sp-cmp" type="button">${esc(t("cmpT"))} ↓</button></div>
    <div class="sp-grid"><div class="sp-tab">${sec}<p class="note">${esc(t("srcS")+s.src)} · ${esc(t("valNote"))}</p></div><div class="sp-figs">${figs}</div></div>
    <section class="cmp" id="cmp"><h3>${esc(t("cmpT"))}</h3><p class="fn" style="margin-top:0">${esc(t("cmpL"))}</p>
     <div class="chips2">${others.map(k=>`<button data-c="${esc(k)}" aria-pressed="${cmp.includes(k)}" ${!cmp.includes(k)&&cmp.length>=3?"disabled":""}>${esc(k)}</button>`).join("")}${cmp.length?`<button data-clear="1" class="clr">${esc(t("cmpClear"))}</button>`:""}</div>
     ${ctab}</section>`;
+  $("#sp-cmp").onclick=()=>{const y=$("#cmp").getBoundingClientRect().top+scrollY-12;try{scrollTo({top:y,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}catch(e){scrollTo(0,y)}};
   $("#sp-cp").onclick=async e=>{try{await navigator.clipboard.writeText(specText(name));e.target.textContent=t("cpDone")}catch(err){}};
   $("#specs .chips2").onclick=e=>{const b=e.target.closest("button");if(!b||b.disabled)return;
     if(b.dataset.clear)cmp=[];else{const k=b.dataset.c;cmp=cmp.includes(k)?cmp.filter(x=>x!==k):[...cmp,k]}
